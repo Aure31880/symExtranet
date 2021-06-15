@@ -1,0 +1,39 @@
+/* NAVBAR */
+
+.logo {
+    width: 80px;
+    height: auto;
+    margin: auto;
+}
+
+/* REGISTRATION PAGE */
+
+.registration-title {
+    margin: 30px;
+    text-align: center;
+}
+
+.form-registration {
+    margin: auto;
+    max-width: 350px;
+}
+
+.btn.btn-danger {
+    margin: 10px auto;
+}
+
+.feature {
+    max-width: 350px;
+    margin: auto;
+}
+
+/* FOOTER */
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+}
+
+.copyright.mentions {
+    margin: auto;
+}

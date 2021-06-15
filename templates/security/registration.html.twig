@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+	<h1 class="registration-title">Inscription</h1>
+
+	<div class="form-registration">
+		{{ form_start(form) }}
+
+		{{ form_row(form.username, { 'label': "Nom d'utilisateur", 'attr': {'placeholder': "Nom d'utilisateur"}})}}
+		{{ form_row(form.name, {'label': 'Nom', 'attr': {'placeholder': 'Nom'}})}}
+		{{ form_row(form.firstname, {'label': 'Prénom', 'attr': {'placeholder': 'Prénom'}})}}
+		{{ form_row(form.password, {'label': 'Mot de passe', 'attr': {'placeholder': 'mot de passe'}})}}
+		{{ form_row(form.confirm_password, {'label': 'Confimez mdp', 'attr': {'placeholder': 'Confirmez mot de passe'}})}}
+
+		<button type="subbmit" class="btn btn-danger">Inscription</button>
+		{{ form_end(form) }}
+	</div>
+	<div class="feature">
+		<p>Connectez vous à votre espace personnel</p>
+
+		<a href="{{path('security_login')}}">Connexion</a>
+	</div>
+{% endblock %}
