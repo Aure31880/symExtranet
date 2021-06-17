@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashbord
+{% endblock %}
+
+{% block body %}
+
+	<section class="group-list">
+		<h1 class="dashbord-main-title">GBAF</h1>
+		<p>Le Groupement Banque Assurance Français (GBAF) est une fédération représentant les 6 grands groupes français :</p>
+		<ul>
+			<li>BNP Paribas</li>
+			<li>BPCE</li>
+			<li>Crédit Agricole</li>
+			<li>Crédit Mutuel-CIC</li>
+			<li>Société Générale</li>
+			<li>La Banque Postale</li>
+		</ul>
+		<p>Le GBAF est le représentant de la profession bancaire et des assureurs
+																								sur tous les axes de la réglementation financière française. Sa mission est de promouvoir
+																								l'activité bancaire à l’échelle nationale. C’est aussi un interlocuteur privilégié des
+																								pouvoirs publics.</p>
+	</section>
+	<hr>
+	<section class="actors">
+		<h2>Section Acteurs</h2>
+		<div class="partner-actor-list">
+			<ul class="partner-list">
+				<h3>Nos partenaires :</h3>
+				<li>BNP Paribas</li>
+				<li>BPCE</li>
+				<li>Crédit Agricole</li>
+				<li>Crédit Mutuel-CIC</li>
+				<li>Société Générale</li>
+				<li>La Banque Postale</li>
+			</ul>
+			<ul class="actors-list">
+				<h3>Nos acteurs :</h3>
+				<li>Formation_co</li>
+				<li>Protectpeople</li>
+				<li>DSA France</li>
+				<li>CDE</li>
+			</ul>
+		</div>
+	</section>
+	<hr>
+	{% for partners in partner %}
+
+		<div class="partners-card">
+			<a href="#">
+				<h2 class="partners-name">{{ partners.actor }}</h2>
+				<div class="partners-features">
+					<div class="partners-image">
+						<img src="{{ partners.logo }}" alt="" class="partners-logo">
+					</div>
+					<div class="partners-description">
+						<p>{{ partners.description }}</p>
+					</div>
+				</div>
+			</a>
+		</div>
+	{% endfor %}
+
+{% endblock %}

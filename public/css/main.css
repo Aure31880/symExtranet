@@ -1,9 +1,36 @@
+/* FONT */
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
+section {
+    background-color: #F2F4F4;
+}
+
 /* NAVBAR */
 
 .logo {
-    width: 80px;
+    width: 100px;
     height: auto;
-    margin: auto;
+}
+
+.logout {
+    margin-right: 15px;
+    color: red;
+}
+
+.logout:hover {
+    color: rgba(255, 0, 0, 0.603);
 }
 
 /* REGISTRATION PAGE */
@@ -30,10 +57,48 @@
 /* FOOTER */
 
 .footer {
-    position: absolute;
+    position: relative;
     bottom: 0px;
+    left: 45%;
 }
 
 .copyright.mentions {
     margin: auto;
+}
+
+/* DASHBORD */
+
+.group-list p {
+    margin: 15px;
+}
+
+.dashbord-main-title {
+    margin: 15px;
+}
+
+.actors h2 {
+    margin: 15px;
+}
+
+.partner-actor-list {
+    display: grid;
+    grid-template-columns: 400px 400px;
+}
+
+.partners-card {
+    border: black 1px solid;
+}
+
+.partners-features {
+    display: flex;
+}
+
+.partners-logo {
+    width: 600px;
+}
+
+.partners-description {
+    margin-left: 80px;
+    text-align: justify;
+    flex-wrap: wrap;
 }
