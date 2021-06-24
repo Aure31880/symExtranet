@@ -51,6 +51,11 @@ class User implements UserInterface
      */
     private $confirm_password;
 
+    public function __toString()
+    {
+        return $this->username;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

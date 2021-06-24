@@ -18,13 +18,6 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class SecurityController extends AbstractController
 {
 
-    // private $passwordHasher;
-    //
-    // public function __construct(UserPasswordHasherInterface $passwordHasher)
-    // {
-    //     $this->passwordHasher = $passwordHasher;
-    // }
-
     /**
      * @Route("/", name="security_registration")
      */

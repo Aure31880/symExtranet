@@ -26,7 +26,10 @@ section {
 
 .logout {
     margin-right: 15px;
-    color: red;
+    padding: 5px;
+    color: #d9534f;
+    border: #d9534f 1px solid;
+    border-radius: 5px;
 }
 
 .logout:hover {
@@ -49,15 +52,23 @@ section {
     margin: 10px auto;
 }
 
+.btn.btn-danger:hover {
+    background-color: #d9544fe5;
+}
+
 .feature {
     max-width: 350px;
     margin: auto;
 }
 
+.login-path {
+    color: #d9534f;
+}
+
 /* FOOTER */
 
 .footer {
-    position: relative;
+    position: absolute;
     bottom: 0px;
     left: 45%;
 }
@@ -86,7 +97,13 @@ section {
 }
 
 .partners-card {
-    border: black 1px solid;
+    border: black 1px inset;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.partners-name {
+    margin-left: 10px;
 }
 
 .partners-features {
@@ -94,11 +111,66 @@ section {
 }
 
 .partners-logo {
-    width: 600px;
+    width: 500px;
+    padding: 10px;
 }
 
 .partners-description {
+    padding: 10px;
     margin-left: 80px;
     text-align: justify;
     flex-wrap: wrap;
+}
+
+.partners-link a {
+    padding: 5px;
+    color: #FFFFFF;
+    background-color: #d9534f;
+    border-radius: 5px;
+}
+
+.partners-link a:hover {
+    padding: 5px;
+    color: #FFFFFF;
+    background-color: #d9544fe5;
+    border-radius: 5px;
+}
+
+/* COMMENT PAGE */
+
+.comment-actor-name {
+    text-align: center;
+}
+
+.comment-actor-items {
+    margin: 10px auto;
+    padding: 10px;
+}
+
+img.comment-actor-logo {
+    margin-left: 250px;
+}
+
+.comments {
+    display: flex;
+}
+
+.comment-title {
+    padding: 10px;
+}
+
+.comment-descirption-actor {
+    margin: 10px;
+}
+
+.card.add-comment {
+    margin: 10px;
+}
+
+.card.all-comment {
+    margin: 10px;
+}
+
+.card-text-input {
+    width: 100%;
 }

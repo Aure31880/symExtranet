@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{actor.actor}}
+{% endblock %}
+
+{% block body %}
+
+	<h1 class="comment-actor-name">{{ actor.actor }}</h1>
+
+	<div class="comment-actor-items">
+		<img src="{{ actor.logo }}" alt="Logo {{ actor.actor }}" class="comment-actor-logo">
+
+		<p class="comment-descirption-actor">{{ actor.description }}</p>
+	</div>
+	<hr>
+
+	<div class="comments">
+		<h2 class="comment-title">Commentaires</h2>
+	</div>
+	{{ form_start(formComment) }}
+	<div class="card add-comment">
+		<div class="card-header">De :</div>
+		<div class="card-body">
+			{{ form_row(formComment.content, {'label': 'Commentaire', 'attr': {'placeholder': 'Votre message'}}) }}
+			<button type="submit" class="btn btn-danger">Envoyer</button>
+		</div>
+	</div>
+	{{ form_end(formComment) }}
+	{% for comment in actor.comments %}
+		<div class="card all-comment">
+			<div class="card-header">{{ comment.author }}</div>
+			<div class="card-body">
+				<p>{{ comment.content }}</p>
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}
