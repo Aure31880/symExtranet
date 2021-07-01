@@ -8,6 +8,7 @@ use App\Entity\Comment;
 use App\Form\CommentType;
 use App\Repository\ActorRepository;
 use App\Repository\CommentRepository;
+use Doctrine\ORM\Mapping\Id;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Persistence\ObjectRepository;
@@ -15,10 +16,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 
 class PartnerController extends AbstractController
 {
+
+    public function __construct(RequestStack $requestStack)
+    {
+        $this->requestStack = $requestStack;
+    }
     /**
      * @Route("/partner", name="partner")
      */
@@ -39,6 +46,7 @@ class PartnerController extends AbstractController
      */
     public function partnerComments(ActorRepository $repoActor, $id, Request $request, ManagerRegistry $manager): Response
     {
+
         $actor = $repoActor->find($id);
 
         $comment = new Comment();
@@ -49,6 +57,14 @@ class PartnerController extends AbstractController
 
         // Créer les constraints pour valider formulaire puis récuperer variable username sans ça pas d'envoie à la bdd
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $session = $this->requestStack->getSession();
+
+            $author = $session->get('username');
+
+            $comment->setCreateAt(new \DateTime())
+                ->setActor($actor)
+                ->setAuthor($author);
 
             $manager->getManager()->persist($comment);
             $manager->getManager()->flush();

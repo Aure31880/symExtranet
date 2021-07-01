@@ -51,6 +51,15 @@ class User implements UserInterface
      */
     private $confirm_password;
 
+    /**
+     * @Assert\EqualTo(
+     * propertyPath = "username",
+     * message = "Les pseudos ne sont pas identiques")
+     */
+    private $confirm_new_username;
+
+    private $confirm_new_password;
+
     public function __toString()
     {
         return $this->username;
@@ -61,12 +70,12 @@ class User implements UserInterface
         return $this->id;
     }
 
-    public function getUsername(): ?string
+    public function getUsername()
     {
         return $this->username;
     }
 
-    public function setUsername(string $username): self
+    public function setUsername($username): self
     {
         $this->username = $username;
 
@@ -117,6 +126,18 @@ class User implements UserInterface
     public function setConfirmPassword(string $confirm_password): self
     {
         $this->confirm_password = $confirm_password;
+
+        return $this;
+    }
+
+    public function getConfirmNewUsername(): ?string
+    {
+        return $this->confirm_new_username;
+    }
+
+    public function setConfirmNewUsername(string $confirm_new_username): self
+    {
+        $this->confirm_new_username = $confirm_new_username;
 
         return $this;
     }

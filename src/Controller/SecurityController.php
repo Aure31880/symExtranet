@@ -6,17 +6,23 @@ use App\Entity\User;
 use App\Form\RegistrationType;
 use Doctrine\Persistence\ManagerRegistry;
 //use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RequestStack;
 //use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-
 
 
 class SecurityController extends AbstractController
 {
+
+    public function __construct(RequestStack $requestStack)
+    {
+        $this->requestStack = $requestStack;
+    }
 
     /**
      * @Route("/", name="security_registration")
@@ -53,7 +59,13 @@ class SecurityController extends AbstractController
      */
     public function login(): Response
     {
+
+
         if ($this->getUser()) {
+
+            $session = new Session();
+            $session->start();
+
             return $this->redirectToRoute('partner');
         }
 

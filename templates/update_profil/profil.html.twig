@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formUpdateProfil 'bootstrap_4_layout.html.twig' %}
+{% block title %}
+	Profil de
+	{{ app.user.username }}
+{% endblock %}
+
+{% block body %}
+
+	<h1 class="update-profile-title">Modifier le Profil</h1>
+
+	{{ form_start(formUpdateProfil) }}
+
+	{{ form_row(formUpdateProfil.username, {'label': 'Modifier pseudo', 'attr': {'class': 'test'}}) }}
+	{{ form_row(formUpdateProfil.confirm_new_username, {'label': 'Confirmer pseudo'}) }}
+
+	<button type="submit" class="btn btn-danger" id="update-username">Modifier</button>
+
+	{{ form_end(formUpdateProfil) }}
+
+{% endblock %}
